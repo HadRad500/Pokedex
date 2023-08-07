@@ -6,12 +6,28 @@ let pokemonList = [
 ]
 
 
-for (let i = 0; i < pokemonList.length; i++){
+  pokemonList.forEach(function(pokemon) {
+    console.log(pokemon.name + 'is' + pokemon.height + 'that\'s crazy.');
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*for (let i = 0; i < pokemonList.length; i++){
     if (pokemonList[i].height <= 3) {
-      document.write('<p>Bulbasaur (height:3) - Oh that\'s small! </p>')
-    }else if (pokemonList[i].height === 6) {
-      document.write('<p>Charmander (height:6) </p>')
-    } else {
-        document.write('<p>Squirtle (height:5) </p>')
+        document.write(`<p>${pokemonList[i].name} (height:${pokemonList[i].height}) - Oh that\'s small! </p>`)
+    }else {
+      document.write(`<p>${pokemonList[i].name} (height:${pokemonList[i].height}) </p>`)
     }
   }
