@@ -25,6 +25,11 @@ function addListItem(pokemon) {
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("button-class")
+
+    button.addEventListener("click", function(e) {
+        console.log(pokemon);
+    })
+
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
 }
@@ -37,11 +42,14 @@ return{
 })();
 
 
-  pokemonRepository.getAll().forEach(function(pokemon) {
-    console.log(pokemon.name + 'is' + pokemon.height + 'that\'s crazy.');
-  });
-
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
 });
 
+
+
+
+
+/*pokemonRepository.getAll().forEach(function(pokemon) {
+    console.log(pokemon.name + 'is' + pokemon.height + 'that\'s crazy.');
+  });*/
