@@ -1,6 +1,6 @@
-let pokemonRepository = (function () {
-    
-let pokemonList = [
+const pokemonRepository = (function () {
+
+const pokemonList = [
     {name: 'Bulbasaur', height: 3, type: ['grass', 'poison']},
     {name: 'Charmander', height: 6, type: ['fire', 'dragon']},
     {name: 'Squirtle', height: 5, type: ['water', 'normal']},
@@ -14,36 +14,34 @@ function getAll() {
     return pokemonList;
 }
 
+let addListItem = document.querySelector('.pokemon-list').addEventListener('click', function (pokemon) {
+    document.querySelector('.additional-information')
+      console.log(pokemon);
+  });
+
+function addListItem(pokemon) {
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class")
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+}
+
 return{
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
 };
 })();
 
 
-  pokemonList.forEach(function(pokemon) {
+  pokemonRepository.getAll().forEach(function(pokemon) {
     console.log(pokemon.name + 'is' + pokemon.height + 'that\'s crazy.');
-    console.log(pokemonRepository.getAll());
   });
 
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*for (let i = 0; i < pokemonList.length; i++){
-    if (pokemonList[i].height <= 3) {
-        document.write(`<p>${pokemonList[i].name} (height:${pokemonList[i].height}) - Oh that\'s small! </p>`)
-    }else {
-      document.write(`<p>${pokemonList[i].name} (height:${pokemonList[i].height}) </p>`)
-    }
-  }*/
