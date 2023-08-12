@@ -20,7 +20,7 @@ function addListItem(pokemon) {
     button.classList.add("button-class")
 
     button.addEventListener("click", function(e) {
-        console.log(pokemon);
+        showDetails(pokemon)
     })
 
     listpokemon.appendChild(button);
@@ -62,6 +62,32 @@ function showDetails(pokemon) {
       console.log(pokemon);
     });
 };
+
+function showModal(pokemon) {
+    let modalContainer = document.querySelector ('#modal-container');
+    modalContainer.innerHTML = '';
+    let modal = document.createElement('div');
+    modal.ClassList.add('modal');
+
+    let closeButtonElement = document.createElement ('button');
+    closeButtonElement.classlist.add ('modal-close');
+    closeButtonElement.innerText = 'Close';
+
+    titleElement = document.createElement ('h1');
+    titleElement.innerText = title;
+
+    modalContainer.classlist.add('is-visible');
+}
+
+
+    document.querySelector('#show-modal').addEventListener
+    ('click', () => {
+        showModal();
+    })
+    
+
+
+}
 
 return{
     add: add,
