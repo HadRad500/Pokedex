@@ -59,35 +59,46 @@ function loadDetails(item) {
 
 function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-      console.log(pokemon);
+      showModal(pokemon);
     });
-};
+}
 
 function showModal(pokemon) {
+    let modalContent = document.querySelector ('.modal-content');
     let modalContainer = document.querySelector ('#modal-container');
-    modalContainer.innerHTML = '';
+    modalContent.innerHTML = '';
+    modalContainer.style.display = "block";
+
     let modal = document.createElement('div');
     modal.ClassList.add('modal');
 
     let closeButtonElement = document.createElement ('button');
-    closeButtonElement.classlist.add ('modal-close');
+    closeButtonElement.classList.add ('modal-close');
     closeButtonElement.innerText = 'Close';
-
-    titleElement = document.createElement ('h1');
-    titleElement.innerText = title;
-
-    modalContainer.classlist.add('is-visible');
-}
-
-
-    document.querySelector('#show-modal').addEventListener
-    ('click', () => {
-        showModal();
+    closeButtonElement.addEventListener("click", () => {
+        modalContainer.style.display = "none";
     })
-    
 
+    window.addEventListener('keydown', (e) => {
+        let modalContainer = document.querySelector('#modal-container');
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+          hideModal();  
+        }
+      });
 
+   const titleElement = document.createElement ('h1');
+    titleElement.innerText = pokemon.name;
+
+    let imageElement = document.createElement('img');
+    imageElement.classList.add('modal-img');
+    imageElement.src = pokemon.imageUrl;
+
+    modalContent.classList.add('is-visible');
+    modalContent.appendChild(closeButtonElement);
+    modalContent.appendChild(titleElement);
+   
 }
+    
 
 return{
     add: add,
