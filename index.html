@@ -12,7 +12,15 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <h1>Pokedex</h1>
+
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="./img/pokemon-logo.png"
+        class="d-inline-block align-top" 
+        alt=""/>
+      </a>
+    </nav>
+
     <ul class="pokemon-list"></ul>
 
 
@@ -22,10 +30,10 @@
 
 
     <script
-     src="https://code.jquery.com/jquery-3.7.0.js"
-     integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-     crossorigin="anonymous"> 
-    </script>
+    src="https://code.jquery.com/jquery-3.1.1.slim.js" 
+    integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA=" crossorigin="anonymous">
+    </script> 
+  
 
     <script src="js/fetch-polyfill.js"></script>
     <script src="js/promise-polyfill.js"></script>
