@@ -70,7 +70,7 @@ function showModal(pokemon) {
     modalContainer.style.display = "block";
 
     let modal = document.createElement('div');
-    modal.ClassList.add('modal');
+    modal.classList.add('modal');
 
     let closeButtonElement = document.createElement ('button');
     closeButtonElement.classList.add ('modal-close');
@@ -96,7 +96,7 @@ function showModal(pokemon) {
     modalContent.classList.add('is-visible');
     modalContent.appendChild(closeButtonElement);
     modalContent.appendChild(titleElement);
-   
+    modalContent.appendChild(imageElement);
 }
     
 
