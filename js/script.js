@@ -61,8 +61,14 @@ function loadDetails(item) {
     .then(function (details) {
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types;
+
+    let pokemonTypes= []
+    details.types.forEach((type) => {
+      pokemonTypes.push(type.type.name);
+    });
+    item.types = pokemonTypes.join(", ")
     })
+
     .catch(function (e) {
       console.error(e);
     });
@@ -80,17 +86,6 @@ function showModal(pokemon) {
     let modalHeader = document.querySelector ('.modal-header');
     modalBody.innerHTML = "";
     modalTitle.innerHTML = "";
-   // modalContainer.style.display = "block";
-
-    //let modal = document.createElement('div');
-    //modal.classList.add('modal');
-
-    /*let closeButtonElement = document.createElement ('button');
-    closeButtonElement.classList.add ('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener("click", () => {
-        modalContainer.style.display = "none";
-    })*/
 
     window.addEventListener("keydown", (e) => {
         let modalContainer = document.querySelector('#modal-container');
@@ -107,10 +102,21 @@ function showModal(pokemon) {
     imageElement.classList.add('modal-img');
     imageElement.src = pokemon.imageUrl;
 
-    //modalContent.classList.add('is-visible');
-   // modalContent.appendChild(closeButtonElement);
+    let pokemonHeight = document.createElement("p");
+    pokemonHeight.classList.add("modal-items");
+    pokemonHeight.innerText = `height: ${(pokemon.height) / 10} m.`;
+
+    let pokemonTypes = document.createElement("p");
+    pokemonTypes.classList.add("modal-items");
+
+  
+    pokemonTypes.innerText = `type: ${(pokemon.types)}`;
+   
+
     modalBody.appendChild(titleElement);
     modalBody.appendChild(imageElement);
+    modalBody.appendChild(pokemonHeight);
+    modalBody.appendChild(pokemonTypes);
 }
     
 
@@ -120,6 +126,7 @@ return{
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
+    showDetails: showDetails,
 };
 
 
