@@ -13,8 +13,11 @@ Contains a list with 150 pokemons
 
 Click on a pokemon for more detailed information
 
+Link to App: https://hadrad500.github.io/Pokedex/
+
 Technologies
-the Pokedex Website was written in the following languages:
+
+The Pokedex Website was written in the following languages:
 
 HTML
 CSS
